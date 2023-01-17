@@ -9,4 +9,4 @@
   - name: Show modules and show system output to a file
     arubaoss_command:
       commands: ['show modules', 'show system']
-      output_file: /home/user-ansible/tmp/types/{{ inventory_hostname }}.txt
+      output_file: /home/user-ansible/files/{{ inventory_hostname }}.txt
