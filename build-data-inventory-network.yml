@@ -4,3 +4,4 @@
   tasks:
   - name: Execute .xlsx output script
     script: parsing-switch-info.py
+    delegate_to: localhost
