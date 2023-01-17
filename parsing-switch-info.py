@@ -6,7 +6,7 @@ import os
 df = pd.DataFrame(columns=["Hostname", "Vendor", "Product Name", "Serial Number", "MAC Address", "Software Revision", "Up Time", "CPU Util"])
 
 # Spécification du répertoire contenant les fichiers à traiter
-directory = ''
+directory = './'
 
 # Boucle pour parcourir les fichiers dans le répertoire
 for filename in os.listdir(directory):
