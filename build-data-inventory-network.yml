@@ -19,6 +19,11 @@
     ansible.builtin.pip:
       name: pandas
       state: present
+ 
+  - name: Download pandas package
+    ansible.builtin.pip:
+      name: openpyxl
+      state: present
       
   - name: Execute .xlsx output script
     script: parsing-switch-info.py
