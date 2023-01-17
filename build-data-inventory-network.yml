@@ -1,4 +1,6 @@
 ---
+- import_playbook: dl-switch-type.yml
+
 - hosts: all
   gather_facts: False
   collections:
