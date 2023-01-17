@@ -5,8 +5,8 @@
   
   - name: Download pandas package
     ansible.builtin.pip:
-    name: pandas
-    state: present
+      name: pandas
+      state: present
       
   - name: Execute .xlsx output script
     script: parsing-switch-info.py
