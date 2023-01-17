@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: False
+  collections:
+    - arubanetworks.aos_switch
+  vars:
+    ansible_connection: network_cli
+  tasks:
+  - name: Show modules and show system output to a file
+    arubaoss_command:
+      commands: ['show modules', 'show system']
+      output_file: /home/user-ansible/tmp/types/{{ inventory_hostname }}.txt
