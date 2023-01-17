@@ -20,9 +20,14 @@
       name: pandas
       state: present
  
-  - name: Download pandas package
+  - name: Download openpyxl package
     ansible.builtin.pip:
       name: openpyxl
+      state: present
+
+  - name: Download paramiko package
+    ansible.builtin.pip:
+      name: paramiko
       state: present
       
   - name: Execute .xlsx output script
