@@ -5,6 +5,3 @@ collections:
 
 - name: arubanetworks.aos_switch
   version: 1.5.0
-
-- name: aruba_central
-  version: 1.0.1
