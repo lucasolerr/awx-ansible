@@ -1,0 +1,19 @@
+---
+- hosts: all
+  gather_facts: False
+  collections:
+    - arubanetworks.aos_switch
+  vars:
+    ansible_connection: network_cli
+  tasks:
+  - name: "Store information about switches"
+    arubaoss_command:
+      commands: ['show system', 'show modules']
+      output_file: /home/user-ansible/tmp/inventory/{{ inventory_hostname }}.txt
+
+
+- hosts: localhost
+  gather_facts: False
+  tasks:
+  - name: Execute .xlsx output script
+    script: parsing-switch-info.py
