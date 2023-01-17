@@ -1,0 +1,8 @@
+all:
+  hosts:
+    aruba_switch1:
+      ansible_connection: local
+      ansible_host: 10.50.33.252
+      ansible_network_os: arubanetworks.aos_switch.arubaoss
+      ansible_password: password
+      ansible_user: admin
