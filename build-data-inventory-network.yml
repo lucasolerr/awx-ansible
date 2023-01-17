@@ -4,8 +4,8 @@
   tasks:
   
   - name: Download pandas package
-      ansible.builtin.shell: pip install pandas -y
-      become: true
+    ansible.builtin.shell: pip install pandas -y
+    become: true
       
   - name: Execute .xlsx output script
     script: parsing-switch-info.py
