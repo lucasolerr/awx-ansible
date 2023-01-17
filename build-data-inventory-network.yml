@@ -9,7 +9,7 @@
   - name: "Store information about switches"
     arubaoss_command:
       commands: ['show system', 'show modules']
-      output_file: {{ inventory_hostname }}.txt
+      output_file: "{{ inventory_hostname }}.txt"
 
 
 - hosts: localhost
