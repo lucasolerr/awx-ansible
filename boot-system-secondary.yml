@@ -1,4 +1,6 @@
 ---
+- import_playbook: determine-switch-model.yml
+
 - hosts: group_2540
   gather_facts: False
   collections:
