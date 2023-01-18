@@ -1,0 +1,35 @@
+---
+- import_playbook: determine-switch-model.yml
+
+- hosts: group_2540
+  gather_facts: False
+  collections:
+    - arubanetworks.aos_switch
+  vars:
+    ansible_connection: network_cli
+  tasks:
+    - name: Upload via TFTP
+      arubaoss_command:
+        commands:
+        - command: 'copy tftp flash 10.50.33.21 YC_16_11_0008.swi secondary'
+          prompt:
+            - '.*Continue.*'
+          answer:
+            - y
+    - name: Show Flash to confirm upload
+      arubaoss_command:
+        commands:
+        - command: 'show flash'
+
+
+
+- hosts: group_6100
+  gather_facts: False
+  collections:
+    - arubanetworks.aoscx
+  tasks:
+    - name: Upload firmware to primary through HTTP
+      aoscx_upload_firmware:
+        partition_name: 'primary'
+        remote_firmware_file_path: 'http://10.50.33.21:8000/ArubaOS-CX_10_11_0001.swi'
+        vrf: 'default'    
