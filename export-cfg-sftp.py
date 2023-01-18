@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import paramiko
 
 # Création d'une nouvelle instance SSHClient
@@ -15,13 +16,22 @@ client.connect(hostname='10.50.33.21', username='user-ansible', password='passwo
 sftp = client.open_sftp()
 
 # Chemin du fichier local à exporter
-local_file = './*.cfg'
+local_file = './'
 
 # Chemin de destination sur la machine distante
 remote_file = './cfg'
 
-# Transfert du fichier
-sftp.put(local_file, remote_file)
+# Boucle pour parcourir les fichiers dans le répertoire
+for filename in os.listdir(local_directory):
+    if filename.endswith(".cfg"):
+        # Chemin du fichier local à exporter
+        local_file = os.path.join(local_directory, filename)
+
+        # Chemin de destination sur la machine distante
+        remote_file = os.path.join(remote_directory, filename)
+
+        # Transfert du fichier
+        sftp.put(local_file, remote_file)
 
 # Fermeture de la session SFTP
 sftp.close()
