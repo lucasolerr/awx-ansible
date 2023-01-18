@@ -31,5 +31,5 @@
       state: present
       
   - name: Execute .xlsx output script
-    script: parsing-switch-info.py
+    script: python/parsing-switch-info.py
     delegate_to: localhost
