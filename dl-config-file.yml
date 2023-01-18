@@ -1,0 +1,40 @@
+---
+- import_playbook: determine-switch-model.yml 
+
+- hosts: group_2540
+  collections:
+    - arubanetworks.aos_switch
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: arubanetworks.aos_switch.arubaoss
+
+  tasks:
+    - name: Show running-config, show version commands output to a file
+      arubaoss_command:
+        commands: ['show run', 'show version']
+        output_file: "{{ inventory_hostname }}.cfg"
+
+- hosts: group_6100
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_network_os: arubanetworks.aoscx.aoscx
+  tasks:
+    - name: Copy Running Config to local as JSON
+      aoscx_backup_config:
+        config_name: 'running-config'
+        output_file: '{{ inventory_hostname }}.cfg'
+
+- hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Download paramiko package
+       ansible.builtin.pip:
+         name: paramiko
+         state: present
+      
+    - name: Execute .xlsx output script
+      script: parsing-switch-info.py
+      delegate_to: localhost
+
+ 
