@@ -29,9 +29,9 @@
   gather_facts: False
   tasks:
     - name: Download paramiko package
-       ansible.builtin.pip:
-         name: paramiko
-         state: present
+      ansible.builtin.pip:
+        name: paramiko
+        state: present
       
     - name: Export cfg files trough sftp
       script: export-cfg-sftp.py
