@@ -1,7 +1,5 @@
 ---
-- import_playbook: determine-switch-model.yml 
-
-- hosts: group_2540
+- hosts: all
   collections:
     - arubanetworks.aos_switch
   vars:
@@ -14,16 +12,6 @@
         commands: ['show run', 'show version']
         output_file: "{{ inventory_hostname }}.cfg"
 
-- hosts: group_6100
-  collections:
-    - arubanetworks.aoscx
-  vars:
-    ansible_network_os: arubanetworks.aoscx.aoscx
-  tasks:
-    - name: Show running-config, show version commands output to a file
-      aoscx_command:
-        commands: ['show run', 'show version']
-        output_file: "{{ inventory_hostname }}.cfg"
 
 - hosts: localhost
   gather_facts: False
