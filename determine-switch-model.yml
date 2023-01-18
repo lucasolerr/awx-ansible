@@ -18,6 +18,7 @@
     - arubanetworks.aos_switch
   vars:
     ansible_connection: network_cli
+    ansible_network_os: arubanetworks.aos_switch.arubaoss
   vars_files:
     - "switch-series.yml"
   tasks:
