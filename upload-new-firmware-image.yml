@@ -29,7 +29,7 @@
     - arubanetworks.aoscx
   tasks:
     - name: Upload firmware to primary through HTTP
-      aoscx_upload_firmware:
-        partition_name: 'primary'
-        remote_firmware_file_path: 'http://10.50.33.21:8000/ArubaOS-CX_10_11_0001.swi'
-        vrf: 'default'    
+      aoscx_command:
+        lines: ['auto-confirm']
+        commands:
+        - command: copy tftp://10.50.33.21/ArubaOS-CX_10_09_1060.swi primary
