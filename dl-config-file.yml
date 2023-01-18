@@ -20,10 +20,10 @@
   vars:
     ansible_network_os: arubanetworks.aoscx.aoscx
   tasks:
-    - name: Copy Running Config to local as JSON
-      aoscx_backup_config:
-        config_name: 'running-config'
-        output_file: '{{ inventory_hostname }}.cfg'
+    - name: Show running-config, show version commands output to a file
+      aoscx_command:
+        commands: ['show run', 'show version']
+        output_file: "{{ inventory_hostname }}.cfg"
 
 - hosts: localhost
   gather_facts: False
