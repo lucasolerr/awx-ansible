@@ -1,3 +1,5 @@
+import paramiko
+
 # Création d'une nouvelle instance SSHClient
 client = paramiko.SSHClient()
 
