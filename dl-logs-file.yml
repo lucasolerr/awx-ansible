@@ -1,0 +1,25 @@
+---
+- hosts: all
+  collections:
+    - arubanetworks.aos_switch
+
+  vars:
+    ansible_connection: network_cli
+
+  tasks:
+    - name: Show logs output to a file
+      arubaoss_command:
+        commands: ['show logging -a']
+        output_file: "{{ inventory_hostname }}.logs"
+        
+- hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Download paramiko package
+      ansible.builtin.pip:
+        name: paramiko
+        state: present
+      
+    - name: Export cfg files trough sftp
+      script: python/export-logs-sftp.py
+      delegate_to: localhost
