@@ -1,0 +1,15 @@
+---
+- import_playbook: determine-switch-model.yml
+
+- hosts: group_6100
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+  tasks:
+    - name: Execute show images on the switch
+      aoscx_command:
+        commands: ['show images']
+      register: command_output
+    - debug:
+        var: command_output.stdout_lines
