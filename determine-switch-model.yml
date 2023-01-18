@@ -27,7 +27,8 @@
     register: output
     ignore_errors: true
     
-  - debug: var=output
+  - debug: 
+    var: output
 
   - name: "Searching for the outputted String"
     lineinfile:
@@ -54,7 +55,8 @@
     register: output2
     ignore_errors: true
     
-    - debug: var=output2
+  - debug: 
+    var: output2
 
   - name: "Searching for the outputted String"
     lineinfile:
