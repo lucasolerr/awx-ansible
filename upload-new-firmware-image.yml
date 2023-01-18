@@ -11,7 +11,7 @@
     - name: Upload via TFTP
       arubaoss_command:
         commands:
-        - command: 'copy tftp flash 10.50.33.21 YC_16_11_0008.swi secondary'
+        - command: 'copy tftp flash 10.50.33.21 YC_16_11_0008.swi primary'
           prompt:
             - '.*Continue.*'
           answer:
