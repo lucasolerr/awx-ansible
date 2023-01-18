@@ -9,7 +9,7 @@
   tasks:
     - name: Execute show run on the switch
       arubaoss_command:
-        commands: show version
+        commands: show run
       register: command_output
     - debug:
         var: command_output.stdout_lines
