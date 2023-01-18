@@ -26,7 +26,7 @@
 - hosts: group_6100
   gather_facts: False
   vars:
-    ansible_connection: httpapi
+    ansible_connection: arubanetworks.aoscx.aoscx
   collections:
     - arubanetworks.aoscx
   tasks:
