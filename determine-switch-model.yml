@@ -1,0 +1,71 @@
+---
+- hosts: all
+  gather_facts: False
+  collections:
+    - arubanetworks.aos_switch
+  vars:
+    ansible_connection: network_cli
+  tasks:
+  - name: "Store information about switches"
+    arubaoss_command:
+      commands: ['show system', 'show modules']
+      output_file: "{{ inventory_hostname }}.txt"
+
+
+- hosts: all
+  collections:
+    - arubanetworks.aos_switch
+  vars:
+    ansible_connection: network_cli
+  vars_files:
+    - "switch-series.yml"
+  tasks:
+  - name: Check and output the line corresponding to the switch series.
+    local_action:
+      module: shell
+      _raw_params: grep '{{ group_6100 }}' "{{ inventory_hostname }}.txt"
+    register: output
+    ignore_errors: true
+
+  - name: "Searching for the outputted String"
+    lineinfile:
+      path: "{{ inventory_hostname }}.txt"
+      line: '{{ output.stdout }}'
+      state: absent
+    check_mode: yes
+    # want to check only, so set changed explicitly to false
+    changed_when: false
+    register: presence
+    when: output.rc == 0
+
+  - name: "Assigning to the correct group"
+    group_by:
+      key: group_6100
+      parents: all
+    when: presence.found
+    ignore_errors: true
+
+  - name: Check and output the line corresponding to the switch series.
+    local_action:
+      module: shell
+      _raw_params: grep '{{ group_2540 }}' "{{ inventory_hostname }}.txt"
+    register: output2
+    ignore_errors: true
+
+  - name: "Searching for the outputted String"
+    lineinfile:
+      path: "{{ inventory_hostname }}.txt"
+      line: '{{ output2.stdout }}'
+      state: absent
+    check_mode: yes
+    # want to check only, so set changed explicitly to false
+    changed_when: false
+    register: presence2
+    when: output2.rc == 0
+
+  - name: "Assigning to the correct group"
+    group_by:
+      key: group_2540
+      parents: all
+    when: presence2.found
+    ignore_errors: true
