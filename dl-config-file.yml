@@ -22,7 +22,7 @@
         state: present
       
     - name: Export cfg files trough sftp
-      script: export-cfg-sftp.py
+      script: python/export-cfg-sftp.py
       delegate_to: localhost
 
  
