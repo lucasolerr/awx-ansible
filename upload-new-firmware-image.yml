@@ -30,6 +30,5 @@
   tasks:
     - name: Upload firmware to primary through HTTP
       aoscx_command:
-        lines: ['auto-confirm']
         commands:
         - command: copy tftp://10.50.33.21/ArubaOS-CX_10_11_0001.swi primary
