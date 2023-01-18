@@ -26,6 +26,8 @@
       _raw_params: grep '{{ group_6100 }}' {{ inventory_hostname }}.txt
     register: output
     ignore_errors: true
+    
+  - debug: var=output
 
   - name: "Searching for the outputted String"
     lineinfile:
@@ -51,6 +53,8 @@
       _raw_params: grep '{{ group_2540 }}' {{ inventory_hostname }}.txt
     register: output2
     ignore_errors: true
+    
+    - debug: var=output2
 
   - name: "Searching for the outputted String"
     lineinfile:
