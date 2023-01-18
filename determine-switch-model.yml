@@ -1,12 +1,11 @@
 ---
 - hosts: all
   gather_facts: False
-  vars:
-    ansible_network_os: arubanetworks.aos_switch.arubaoss
   collections:
     - arubanetworks.aos_switch
   vars:
     ansible_connection: network_cli
+    ansible_network_os: arubanetworks.aos_switch.arubaoss
   tasks:
   - name: "Store information about switches"
     arubaoss_command:
