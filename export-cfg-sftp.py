@@ -16,10 +16,10 @@ client.connect(hostname='10.50.33.21', username='user-ansible', password='passwo
 sftp = client.open_sftp()
 
 # Chemin du fichier local à exporter
-local_file = './'
+local_directory = './'
 
 # Chemin de destination sur la machine distante
-remote_file = './cfg'
+remote_directory = './cfg'
 
 # Boucle pour parcourir les fichiers dans le répertoire
 for filename in os.listdir(local_directory):
