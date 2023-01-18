@@ -1,0 +1,27 @@
+---
+- hosts: group_2540
+  gather_facts: False
+  collections:
+    - arubanetworks.aos_switch
+  vars:
+    ansible_connection: network_cli
+  tasks:
+    - name: Reboot via secondary image
+      arubaoss_command:
+        commands:
+        - command: 'boot system flash secondary'
+          prompt:
+            - '.*Continue.*'
+          answer:
+            - y
+
+- hosts: group_6100
+  gather_facts: False
+  vars:
+    ansible_connection: httpapi
+  collections:
+    - arubanetworks.aoscx
+  tasks:
+    - name: Boot to secondary
+      aoscx_boot_firmware:
+        partition_name: 'secondary'
