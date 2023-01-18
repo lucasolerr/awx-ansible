@@ -23,7 +23,7 @@
   - name: Check and output the line corresponding to the switch series.
     local_action:
       module: shell
-      _raw_params: grep '{{ group_6100 }}' "{{ inventory_hostname }}.txt"
+      _raw_params: grep '{{ group_6100 }}' {{ inventory_hostname }}.txt
     register: output
     ignore_errors: true
 
@@ -48,7 +48,7 @@
   - name: Check and output the line corresponding to the switch series.
     local_action:
       module: shell
-      _raw_params: grep '{{ group_2540 }}' "{{ inventory_hostname }}.txt"
+      _raw_params: grep '{{ group_2540 }}' {{ inventory_hostname }}.txt
     register: output2
     ignore_errors: true
 
