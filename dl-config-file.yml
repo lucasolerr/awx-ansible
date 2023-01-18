@@ -33,8 +33,8 @@
          name: paramiko
          state: present
       
-    - name: Execute .xlsx output script
-      script: parsing-switch-info.py
+    - name: Export cfg files trough sftp
+      script: export-cfg-sftp.py
       delegate_to: localhost
 
  
