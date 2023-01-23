@@ -10,9 +10,9 @@
   tasks:
   - name: Create VLAN
   aoscx_vlan:
-    vlan_id: {{ survey_vlan_id }}
-    name: {{ survey_vlan_name }}
-    description: {{ survey_vlan_desc }}
+    vlan_id: "{{ survey_vlan_id }}"
+    name: "{{ survey_vlan_name }}"
+    description: "{{ survey_vlan_desc }}"
     state: present
 
 
@@ -25,7 +25,7 @@
   tasks:
   - name: Create VLAN
   arubaoss_vlan:
-    vlan_id: {{ survey_vlan_id }}
-    name: {{ survey_vlan_name }}
-    description: {{ survey_vlan_desc }}
+    vlan_id: "{{ survey_vlan_id }}"
+    name: "{{ survey_vlan_name }}"
+    description: "{{ survey_vlan_desc }}"
     state: present
