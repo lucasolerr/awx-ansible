@@ -9,11 +9,11 @@
     ansible_connection: network_cli
   tasks:
   - name: Create VLAN
-  aoscx_vlan:
-    vlan_id: "{{ survey_vlan_id }}"
-    name: "{{ survey_vlan_name }}"
-    description: "{{ survey_vlan_desc }}"
-    state: present
+    aoscx_vlan:
+      vlan_id: "{{ survey_vlan_id }}"
+      name: "{{ survey_vlan_name }}"
+      description: "{{ survey_vlan_desc }}"
+      state: present
 
 
 - hosts: group_2540
@@ -24,8 +24,8 @@
     ansible_connection: network_cli
   tasks:
   - name: Create VLAN
-  arubaoss_vlan:
-    vlan_id: "{{ survey_vlan_id }}"
-    name: "{{ survey_vlan_name }}"
-    description: "{{ survey_vlan_desc }}"
-    state: present
+    arubaoss_vlan:
+      vlan_id: "{{ survey_vlan_id }}"
+      name: "{{ survey_vlan_name }}"
+      description: "{{ survey_vlan_desc }}"
+      state: present
