@@ -24,6 +24,5 @@
     ansible_connection: network_cli
   tasks:
   - name: Create VLAN
-    arubaoss_vlan:
-      vlan_id: "{{ survey_vlan_id }}"
-      name: "{{ survey_vlan_name }}"
+    arubaoss_commands:
+      commands: ['configure', 'vlan {{ survey_vlan_id }}', 'name {{ survey_vlan_name }}']
