@@ -8,10 +8,10 @@
   vars:
     ansible_connection: network_cli
   tasks:
-    - name: Reboot via secondary image
+    - name: Reboot via {{ boot_image }} image
       arubaoss_command:
         commands:
-        - command: 'boot system flash secondary'
+        - command: 'boot system flash {{ boot_image }}'
           prompt:
             - '.*Continue.*'
           answer:
@@ -24,6 +24,6 @@
   collections:
     - arubanetworks.aoscx
   tasks:
-    - name: Boot to secondary
+    - name: Boot to {{ boot_image }}
       aoscx_boot_firmware:
-        partition_name: 'secondary'
+        partition_name: '{{ boot_image }}'
