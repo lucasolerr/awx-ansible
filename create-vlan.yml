@@ -25,4 +25,4 @@
   tasks:
   - name: Create VLAN
     arubaoss_command:
-      commands: ['configure', 'vlan {{ survey_vlan_id }}', 'name {{ survey_vlan_name }}']
+      commands: ['configure', 'vlan {{ survey_vlan_id }}', 'name {{ survey_vlan_name }}', 'wr mem']
