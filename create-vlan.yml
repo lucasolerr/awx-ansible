@@ -6,7 +6,7 @@
   collections:
     - arubanetworks.aoscx
   vars:
-    ansible_connection: network_cli
+    ansible_connection: httpapi
   tasks:
   - name: Create VLAN
     aoscx_vlan:
