@@ -11,7 +11,7 @@
     - name: Upload via TFTP
       arubaoss_command:
         commands:
-        - command: 'copy tftp flash 10.50.33.21 YC_16_11_0008.swi primary'
+        - command: 'copy tftp flash 10.50.33.21 {{ group_2540_image }} primary'
           prompt:
             - '.*Continue.*'
           answer:
@@ -33,5 +33,5 @@
     - name: Upload firmware to primary through HTTP
       aoscx_upload_firmware:
         partition_name: 'primary'
-        remote_firmware_file_path: 'http://10.50.33.21:8000/ArubaOS-CX_10_11_0001.swi'
+        remote_firmware_file_path: 'http://10.50.33.21:8000/{{ group_6100_image }}'
         vrf: 'default'
