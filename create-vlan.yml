@@ -13,7 +13,7 @@
       vlan_id: "{{ survey_vlan_id }}"
       name: "{{ survey_vlan_name }}"
       description: "{{ survey_vlan_desc }}"
-      state: present
+      state: create
 
 
 - hosts: group_2540
@@ -28,4 +28,4 @@
       vlan_id: "{{ survey_vlan_id }}"
       name: "{{ survey_vlan_name }}"
       description: "{{ survey_vlan_desc }}"
-      state: present
+      state: create
