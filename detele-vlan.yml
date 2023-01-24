@@ -1,0 +1,26 @@
+---
+- import_playbook: determine-switch-model.yml
+
+- hosts: group_6100
+  gather_facts: False
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: httpapi
+  tasks:
+  - name: Delete VLAN
+    aoscx_vlan:
+      vlan_id: "{{ survey_vlan_id }}"
+      state: delete
+
+
+- hosts: group_2540
+  gather_facts: False
+  collections:
+    - arubanetworks.aos_switch
+  vars:
+    ansible_connection: network_cli
+  tasks:
+  - name: Delete VLAN
+    arubaoss_command:
+      commands: ['configure', 'no vlan {{ survey_vlan_id }}', 'wr mem']
