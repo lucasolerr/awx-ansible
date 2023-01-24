@@ -120,7 +120,7 @@ for filename in os.listdir(directory):
 
 
 # Export du DataFrame vers un fichier Excel
-df.to_csv('output.csv', index=False)
+df.to_excel('output.xlsx', index=False)
 
 
 # Création d'une nouvelle instance SSHClient
@@ -136,10 +136,10 @@ client.connect(hostname='10.50.33.21', username='user-ansible', password='passwo
 sftp = client.open_sftp()
 
 # Chemin du fichier local à exporter
-local_file = './output.csv'
+local_file = './output.xlsx'
 
 # Chemin de destination sur la machine distante
-remote_file = './files/inventaire.csv'
+remote_file = './files/inventaire.xlsx'
 
 # Transfert du fichier
 sftp.put(local_file, remote_file)
