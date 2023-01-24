@@ -139,7 +139,7 @@ sftp = client.open_sftp()
 local_file = './output.xlsx'
 
 # Chemin de destination sur la machine distante
-remote_file = './output.xlsx'
+remote_file = './files/inventaire.csv'
 
 # Transfert du fichier
 sftp.put(local_file, remote_file)
