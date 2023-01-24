@@ -110,8 +110,8 @@ for filename in os.listdir(directory):
                 if "CPU Util" in line:
                     # Extraction de l'utilisation CPU et stockage dans le dictionnaire
                     cpu_util = line.split(":")[1].strip()
-                    data["CPU Util"] = cpu_util
                     cpu_util += '%'
+                    data["CPU Util"] = cpu_util
         # Création d'un DataFrame à partir du dictionnaire
         # df = df.append(data, ignore_index=True)
         data = pd.DataFrame(data, index=[0])
