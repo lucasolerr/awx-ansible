@@ -120,7 +120,7 @@ for filename in os.listdir(directory):
 
 
 # Export du DataFrame vers un fichier Excel
-df.to_excel('output.csv', index=False)
+df.to_csv('output.csv', index=False)
 
 
 # Création d'une nouvelle instance SSHClient
