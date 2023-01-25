@@ -1,6 +1,6 @@
 ---
 - name: Ping all hosts
-  hosts: all
+  hosts: "{{ host_var }}"
   gather_facts: false
   tasks:
     - name: Ping host
