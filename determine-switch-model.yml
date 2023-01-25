@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: "{{ host_var }}"
   gather_facts: False
   collections:
     - arubanetworks.aos_switch
@@ -13,7 +13,7 @@
       output_file: "{{ inventory_hostname }}.txt"
 
 
-- hosts: all
+- hosts: "{{ host_var }}"
   collections:
     - arubanetworks.aos_switch
   vars:
