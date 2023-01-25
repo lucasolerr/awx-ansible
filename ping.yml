@@ -5,3 +5,6 @@
   tasks:
     - name: Ping host
       ping:
+      register: output
+    - debug:
+        var: output
