@@ -1,7 +1,7 @@
 ---
 - import_playbook: determine-switch-model.yml
 
-- hosts: group_6100
+- hosts: AOSCX
   collections:
     - arubanetworks.aoscx
   vars:
