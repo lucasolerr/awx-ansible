@@ -1,7 +1,7 @@
 ---
 - import_playbook: determine-switch-model.yml
 
-- hosts: group_6100
+- hosts: AOSCX
   gather_facts: False
   collections:
     - arubanetworks.aoscx
@@ -16,7 +16,7 @@
       state: create
 
 
-- hosts: group_2540
+- hosts: Aruba_OSS
   gather_facts: False
   collections:
     - arubanetworks.aos_switch
