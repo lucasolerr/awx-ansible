@@ -5,6 +5,9 @@
   vars:
     ansible_connection: network_cli
     ansible_python_interpreter: /usr/bin/python3
+  vars_files:
+    - ./vars/vault.yml
+    - ./vars/var.yml
   gather_facts: False
   tasks:
     - name: Execute show run on the switch
