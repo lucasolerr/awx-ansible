@@ -1,1 +1,1 @@
-test: {{ vault_password }}
+test: "{{ vault_password }}"
