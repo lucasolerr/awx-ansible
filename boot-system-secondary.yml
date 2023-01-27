@@ -1,7 +1,7 @@
 ---
 - import_playbook: determine-switch-model.yml
 
-- hosts: group_2540
+- hosts: Aruba_OSS
   gather_facts: False
   collections:
     - arubanetworks.aos_switch
@@ -17,7 +17,7 @@
           answer:
             - y
 
-- hosts: group_6100
+- hosts: AOSCX
   gather_facts: False
   vars:
     ansible_connection: httpapi
