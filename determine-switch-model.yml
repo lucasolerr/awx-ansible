@@ -45,7 +45,7 @@
 
   - name: "Assigning to the correct group"
     group_by:
-      key: group_6100
+      key: AOSCX
       parents: all
     when: presence.found
     ignore_errors: true
@@ -73,7 +73,35 @@
 
   - name: "Assigning to the correct group"
     group_by:
-      key: group_2540
+      key: Aruba_OSS
       parents: all
     when: presence2.found
+    ignore_errors: true
+    
+  - name: Check and output the line corresponding to the switch series.
+    local_action:
+      module: shell
+      _raw_params: grep '{{ group_2930 }}' {{ inventory_hostname }}.txt
+    register: output3
+    ignore_errors: true
+    
+  - debug: 
+      var: output3
+
+  - name: "Searching for the outputted String"
+    lineinfile:
+      path: "{{ inventory_hostname }}.txt"
+      line: '{{ output3.stdout }}'
+      state: absent
+    check_mode: yes
+    # want to check only, so set changed explicitly to false
+    changed_when: false
+    register: presence3
+    when: output3.rc == 0
+
+  - name: "Assigning to the correct group"
+    group_by:
+      key: Aruba_OSS
+      parents: all
+    when: presence3.found
     ignore_errors: true
