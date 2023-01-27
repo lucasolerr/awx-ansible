@@ -1,5 +1,8 @@
 ---
 - hosts: "{{ host_var }}"
+  vars_files:
+    - ./vars/vault.yml
+    - ./vars/var.yml
   gather_facts: False
   collections:
     - arubanetworks.aos_switch
@@ -14,6 +17,9 @@
 
 
 - hosts: "{{ host_var }}"
+  vars_files:
+    - ./vars/vault.yml
+    - ./vars/var.yml
   collections:
     - arubanetworks.aos_switch
   vars:
