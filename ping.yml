@@ -1,6 +1,9 @@
 ---
 - name: Ping all hosts
   hosts: "{{ host_var }}"
+  vars_files:
+    - ./vars/vault.yml
+    - ./vars/var.yml
   gather_facts: false
   tasks:
     - name: Ping host
