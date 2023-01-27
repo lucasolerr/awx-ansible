@@ -1,5 +1,8 @@
 ---
 - hosts: "{{ host_var }}"
+  vars_files:
+    - ./vars/vault.yml
+    - ./vars/var.yml
   collections:
     - arubanetworks.aos_switch
   vars:
