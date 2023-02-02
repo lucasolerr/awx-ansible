@@ -19,7 +19,7 @@ sftp = client.open_sftp()
 local_directory = './'
 
 # Chemin de destination sur la machine distante
-remote_directory = './cfg'
+remote_directory = './cfg/daily'
 
 # Boucle pour parcourir les fichiers dans le répertoire
 for filename in os.listdir(local_directory):
