@@ -25,7 +25,7 @@
         state: present
       
     - name: Export cfg files trough sftp
-      script: python/export-cfg-sftp.py
+      script: python/export-cfg-sftp-{{ freq_var }}.py
       delegate_to: localhost
 
  
