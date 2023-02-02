@@ -1,1 +1,2 @@
 secure_password_test: "{{ vault_password }}"
+aruba_password_stage: "{{ aruba_switch_password_stage }}"
