@@ -10,7 +10,7 @@
 <h3 align="center">AWX Ansible</h3>
 
   <p align="center">
-    Dans le cadre d'un stage de deuxième année de classe préparatoire, j'ai eu l'occasion d'apprendre à maîtriser des outils d'automatisation de matériel informatique comme Ansible. Ma mission a été de construire des scripts permettant le pilotage, la configuration, la sauvegarde et mise à jour firmware de switchs de la marque ARUBA filliale d'HP.
+    Dans le cadre d'un stage de deuxième année de classe préparatoire de mon école d'ingénieur, j'ai eu l'occasion d'apprendre à maîtriser des outils d'automatisation de matériel informatique comme <b>Ansible</b>. Ma mission a été de construire des scripts permettant le pilotage, la configuration, la sauvegarde et mise à jour firmware de switchs de la marque ARUBA filliale d'HP.
     <br />
   </p>
 </div>
@@ -77,7 +77,6 @@ Pour vérifier que python est bien installé :
 ```shell
 python --version
 ```
-
 
 ### Installation
 
@@ -316,12 +315,12 @@ Pour ajouter un nouvel identifiant le cas échéant il faut se rendre dans Resou
 ### Comment ajouter un utilisateur ?
 
 En tant qu'admin, se rendre dans l'onglet "Access/Users", cliquer sur Add.
-Puis entrer les informations du nouvel utilisateur, lui affecter l'organisation Cerballiance et les droits Normal User.
+Puis entrer les informations du nouvel utilisateur, lui affecter l'organisation Entreprise et les droits Normal User.
 
 ### Comment créer une équipe ?
 
 En tant qu'admin, se rendre dans l'onglet "Access/Teams", cliquer sur Add.
-Puis entrer les informations de la nouvelle équipe et lui affecter l'organisation Cerballiance.
+Puis entrer les informations de la nouvelle équipe et lui affecter l'organisation Entreprise.
 
 ### Comment affecter un utilisateur à une équipe ?
 
@@ -336,7 +335,7 @@ Sélectionner ensuite le rôle applicable à l'équipe.
 
 ### Comment ajouter la possibilité de se faire notifier lors de l'exécution d'un playbook ?
 
-En tant qu'admin, se rendre dans l'onglet "Administration/Notifications", cliquer sur Add. Entrer un nom de notification, attribuer la notification à l'organisation Cerballiance puis choisir le type de notification. Vous avez le choix entre :
+En tant qu'admin, se rendre dans l'onglet "Administration/Notifications", cliquer sur Add. Entrer un nom de notification, attribuer la notification à l'organisation Entreprise puis choisir le type de notification. Vous avez le choix entre :
 
 - E-mail
 - Grafana
@@ -351,7 +350,7 @@ En tant qu'admin, se rendre dans l'onglet "Administration/Notifications", clique
 Ajouter une notification mail :
 
 Pour ajouter une notification mail, il suffit de sélectionner le champ E-mail sur AWX et rentrer les informations nécessaires à savoir :
-- User : prénom.nom@cerballiance.fr
+- User : prenom.nom@Entreprise.fr
 - Password : mot de passe attribué à votre compte office
 - Host : smtp.office365.com
 - Recipient list : Liste de destinataires de la notification
@@ -382,7 +381,7 @@ En exportant le .csv depuis Aruba Central listant toutes les machines présentes
 C’est un fichier csv contenant de nombreuses informations sur un switch. Depuis ce fichier à l’aide d’un script python nous allons pouvoir récupérer les informations qui nous intéressent à savoir l’adresse ip et le modèle du switch pour l’ajouter à nos inventaires AWX.
 
 Le script de la ligne 1 à 23 s’occupe de rendre le fichier csv lisible en enlevant les artefacts et les mauvaises notations du fichier.
-Ensuite est défini l’url de la rêquete API on y reconnaît l’adresse ip de l’interface AWX, une requête sur l’api qui concerne l’inventaire d’id 7. Cette id correspond à l’inventaire ciblé ici le "7" correspond à l’inventaire nommé Cerballiance, il suffit de changer "7" par l’id d’un autre inventaire pour ajouter les hôtes du fichier csv dans un autre inventaire.
+Ensuite est défini l’url de la rêquete API on y reconnaît l’adresse ip de l’interface AWX, une requête sur l’api qui concerne l’inventaire d’id 7. Cette id correspond à l’inventaire ciblé ici le "7" correspond à l’inventaire nommé Entreprise, il suffit de changer "7" par l’id d’un autre inventaire pour ajouter les hôtes du fichier csv dans un autre inventaire.
 Par la suite le script s’occupe de récupérer les informations d’adresse ip et de modèle puis requête l’api host par host pour les ajouter à l’inventaire avec comme hostname leur adresse ip (aucune donnée n’est présente dans le csv pour les nommer par exemple X-X-X)
 
 ### Script de requête API pour ajouter des hôtes dans des groupes dédiés depuis un fichier csv 
