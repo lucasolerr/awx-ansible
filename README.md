@@ -396,7 +396,7 @@ Il faut faire attention qu’aucun groupe possédant le même nom existe déjà 
 <!-- CONTACT -->
 ## Contact
 
-Luca SOLER - [@Luca_SOLER](https://twitter.com/twitter_handle) - contact@lucasoler.fr
+[Luca SOLER](https://lucasoler.fr) - [@Luca_SOLER](https://linkedin.com/in/luca-soler-11a208220) - contact@lucasoler.fr
 
 Project Link: [https://github.com/lucasolerr/awx-ansible](https://github.com/lucasolerr/awx-ansible)
 
