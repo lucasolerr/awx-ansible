@@ -10,7 +10,7 @@ client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 # Connexion à la machine distante
-client.connect(hostname='10.50.33.21', username='user-ansible', password='password')
+client.connect(hostname='x.x.x.x', username='your_username', password='your_password')
 
 # Ouverture d'un SFTP session
 sftp = client.open_sftp()
